@@ -1,0 +1,79 @@
+﻿@using HorseTrack.Models.DBModels
+@model HorseTrack.Data.DataController
+@{
+    ViewData["Title"] = "HorseTrack";
+}
+
+<div class="row" ng-app="Content" ng-controller="RouteController">
+    <a class="col-md-3" href="#!/Customers">Customers</a>
+    <a class="col-md-3" href="#!/Horses">Horses</a>
+    <a class="col-md-3" href="#!/Inventory">Inventory</a>
+    <div data-ng-view></div>
+</div>
+
+@section Scripts{
+<script>
+    var module = angular.module('Content', ['ngRoute'])
+    .controller('RouteController', function ($scope) {
+
+    })
+    .controller('UserController', function ($scope) {
+       @foreach (User user in Model.Users)
+        {
+            <text>
+            $scope.user_@user.ID = {
+                "Name": "@user.Name",
+                "Phone": "@user.Phone",
+                "Email": "@user.Email",
+                "Address1": "@user.Address[0] @user.Address[1]",
+                "Address2": "@user.Address[2]",
+                "Horses": {
+                    @foreach (Horse horse in user.Horses)
+                    {
+                        <text>
+                        "@horse.ID": "@horse.Name"@if(horse != user.Horses.Last()) { <text>,</text> }
+                        </text>
+                    }
+                }
+            };
+            </text>
+        }
+        $scope.User = $scope.user_@Model.Users.First().ID;
+       @foreach (Horse horse in Model.Horses)
+        {
+            <text>
+            $scope.horse_@horse.ID = {
+                "Name": "@horse.Name",
+                "Breed": "@horse.Breed",
+                "Gender": "@horse.Gender",
+                "Color": "@horse.Color",
+                "Age": "@horse.Age",
+                "OwnerID": "@horse.OwnderID"
+            };
+            </text>
+        }
+         $scope.Horse = $scope.horse_@Model.Users.First().ID;
+    })
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/Customers',
+                {
+                    controller: 'RouteController',
+                    templateUrl: '/Home/Customers'
+                })
+            //Define a route that has a route parameter in it (:customerID)
+            .when('/Horses',
+                {
+                    controller: 'RouteController',
+                    templateUrl: '/Home/Horses'
+                })
+            .when('/Inventory',
+                {
+                    controller: 'RouteController',
+                    templateUrl: '/Home/Inventory'
+                })
+            .otherwise({ redirectTo: '/Customers' });
+    });
+
+</script>
+}

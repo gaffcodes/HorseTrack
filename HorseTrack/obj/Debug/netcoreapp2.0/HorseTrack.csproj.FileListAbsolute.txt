@@ -1,0 +1,11 @@
+F:\Code\HorseTrack\HorseTrack\bin\Debug\netcoreapp2.0\HorseTrack.deps.json
+F:\Code\HorseTrack\HorseTrack\bin\Debug\netcoreapp2.0\HorseTrack.runtimeconfig.json
+F:\Code\HorseTrack\HorseTrack\bin\Debug\netcoreapp2.0\HorseTrack.runtimeconfig.dev.json
+F:\Code\HorseTrack\HorseTrack\bin\Debug\netcoreapp2.0\HorseTrack.dll
+F:\Code\HorseTrack\HorseTrack\bin\Debug\netcoreapp2.0\HorseTrack.pdb
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.csprojAssemblyReference.cache
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.csproj.CoreCompileInputs.cache
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.AssemblyInfoInputs.cache
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.AssemblyInfo.cs
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.dll
+F:\Code\HorseTrack\HorseTrack\obj\Debug\netcoreapp2.0\HorseTrack.pdb

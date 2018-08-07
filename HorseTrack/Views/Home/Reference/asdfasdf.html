@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+	<title>Angular Reference</title>
+</head>
+<body>	
+	<div class="container" ng-controller="RoutingController">
+		<div>
+			<h3>Adding Module Configuration and Routing</h3>
+			<!-- ng-view handles loading partials into it based
+				 upon routes -->
+			<div data-ng-view></div>
+		</div>
+	</div>
+	
+	<script src="jquery.js"></script>
+	<script src="angular.js"></script>
+	<script src="angular-route.js"></script>
+	
+	<script>
+		var samplesModule = angular.module('myApp', ['ngRoute']);
+		samplesModule.config(function ($routeProvider) {
+			$routeProvider
+				.when('/Partial1',
+					{
+						controller: 'RoutingController',
+						templateUrl: 'Partial1.html'
+					})
+				//Define a route that has a route parameter in it (:customerID)
+				.when('/Partial2',
+					{
+						controller: 'RoutingController',
+						templateUrl: 'Partial2.html'
+					})
+				.otherwise({ redirectTo: '/Partial1' });
+		});
+
+		samplesModule.controller('RoutingController', function ($scope) {
+			$scope.customers = [
+				{ name: 'Dave Jones', city: 'Phoenix' },
+				{ name: 'Jamie Riley', city: 'Atlanta' },
+				{ name: 'Heedy Wahlin', city: 'Chandler' },
+				{ name: 'Thomas Winter', city: 'Seattle' }
+			];
+		});
+	</script>
+</body>
+</html>
